@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#1d1f26" />
+  <rect x="130" y="240" width="540" height="80" rx="16" fill="#2b303a" />
+  <rect x="180" y="330" width="440" height="52" rx="12" fill="#242830" />
+  <text x="400" y="460" text-anchor="middle" fill="#8b8e98" font-size="30" font-family="Arial, sans-serif">Фото готовится</text>
+</svg>
