@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SHACMAN X3000 · проба 3D</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+    <style>
+      :root { font-family: system-ui, sans-serif; color: #192126; background: #f5f6f7; }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      main { max-width: 1220px; margin: auto; padding: 24px; }
+      header { margin-bottom: 20px; }
+      .eyebrow { color: #ad482f; font-size: 13px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+      h1 { margin: 7px 0; font-size: clamp(26px, 3vw, 38px); }
+      p { line-height: 1.5; }
+      .lead { margin: 0; color: #59636a; }
+      .grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(290px, .7fr); gap: 18px; }
+      .panel { overflow: hidden; background: white; border: 1px solid #e2e7ea; border-radius: 18px; box-shadow: 0 8px 30px #18232d0a; }
+      .panel h2 { font-size: 18px; margin: 0; padding: 18px 20px 0; }
+      model-viewer { display: block; width: 100%; height: min(60vw, 540px); min-height: 370px; background: radial-gradient(circle at 50% 40%, #fff 0, #e9ecee 75%); }
+      .hint { margin: 0; padding: 0 20px 18px; color: #68737a; font-size: 14px; }
+      .photo { width: 100%; aspect-ratio: 1; max-height: 430px; object-fit: contain; background: #f2f3f4; }
+      .thumbs { display: flex; gap: 7px; overflow-x: auto; padding: 10px 12px 18px; }
+      .thumbs button { flex: 0 0 60px; width: 60px; height: 60px; border: 2px solid transparent; border-radius: 9px; padding: 0; background: #f1f2f2; cursor: pointer; }
+      .thumbs button[aria-pressed="true"] { border-color: #b85037; }
+      .thumbs img { width: 100%; height: 100%; object-fit: cover; border-radius: 7px; }
+      .note { margin-top: 18px; padding: 16px 20px; background: #fff8e9; border: 1px solid #ecd8a9; border-radius: 14px; }
+      .note p { margin: 5px 0 0; }
+      a { color: #a8422f; }
+      @media (max-width: 850px) { .grid { grid-template-columns: 1fr; } model-viewer { height: 58vh; min-height: 320px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="eyebrow">Черновой образец · 3D</div>
+        <h1>Полка SHACMAN X3000 · 2 яруса</h1>
+        <p class="lead">Поверните модель мышью или пальцем и сравните её с оригинальными кадрами Ozon.</p>
+      </header>
+      <div class="grid">
+        <section class="panel">
+          <h2>Поворотная модель</h2>
+          <model-viewer src="./shacman-x3000-2-approx.glb" alt="Приблизительная трёхмерная модель полки SHACMAN X3000" camera-controls auto-rotate rotation-per-second="10deg" touch-action="pan-y" shadow-intensity="1" camera-orbit="35deg 67deg auto" min-camera-orbit="auto 20deg auto" max-camera-orbit="auto 100deg auto"></model-viewer>
+          <p class="hint">Увеличение — колесом мыши. Надпись SHACMAN на боковине сохранена.</p>
+        </section>
+        <section class="panel">
+          <h2>Оригиналы из карточки Ozon</h2>
+          <img class="photo" id="photo" src="./photos/7269866865.webp" alt="Оригинальное фото полки SHACMAN X3000" />
+          <div class="thumbs" aria-label="Ракурсы полки">
+            <button aria-label="Вид спереди" aria-pressed="true" data-src="7269866865.webp"><img src="./photos/7269866865.webp" alt="" /></button>
+            <button aria-label="Вид сбоку с надписью" aria-pressed="false" data-src="7269866860.webp"><img src="./photos/7269866860.webp" alt="" /></button>
+            <button aria-label="Вид под углом" aria-pressed="false" data-src="7269866862.webp"><img src="./photos/7269866862.webp" alt="" /></button>
+            <button aria-label="Другой ракурс" aria-pressed="false" data-src="7269866877.webp"><img src="./photos/7269866877.webp" alt="" /></button>
+            <button aria-label="Ящик открыт" aria-pressed="false" data-src="7269866861.webp"><img src="./photos/7269866861.webp" alt="" /></button>
+            <button aria-label="Панель автомобиля" aria-pressed="false" data-src="7131796549%20(1).webp"><img src="./photos/7131796549%20(1).webp" alt="" /></button>
+          </div>
+        </section>
+      </div>
+      <div class="note">
+        <strong>Что показывает эта проба</strong>
+        <p>Это приблизительная 3D-геометрия, собранная по ракурсам и размеру 135 × 35 см из <a href="https://www.ozon.ru/product/1831268699/">карточки Ozon</a>. Невидимые задняя и нижняя стороны, высота деталей и точная форма вырезов не измерены. Использовать модель как доказательство совместимости с торпедой или как фото товара нельзя.</p>
+      </div>
+    </main>
+    <script>
+      const photo = document.querySelector('#photo');
+      document.querySelectorAll('.thumbs button').forEach((button) => {
+        button.addEventListener('click', () => {
+          photo.src = './photos/' + button.dataset.src;
+          document.querySelectorAll('.thumbs button').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        });
+      });
+    </script>
+  </body>
+</html>

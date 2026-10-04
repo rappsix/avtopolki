@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 96">
+  <g fill="none" stroke="#d7dae0" stroke-width="6">
+    <circle cx="120" cy="52" r="34" />
+    <line x1="144" y1="28" x2="163" y2="9" />
+  </g>
+  <polygon points="176,2 176,26 152,2" fill="#d7dae0" />
+  <text x="120" y="59" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="5" fill="#d7dae0">VOLVO</text>
+</svg>
